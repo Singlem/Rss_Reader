@@ -1,0 +1,6 @@
+packages/
+rgn_rss_application.Tests/obj/
+rgn_rss_application.Tests/bin/
+rgn_rss_application/obj/
+rgn_rss_application/bin/
+*.suo
