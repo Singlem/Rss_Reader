@@ -11,6 +11,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "RssReader_Database", "RssRe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RssReader_Datalayer", "RssReader_Datalayer\RssReader_Datalayer.csproj", "{6B1A8E5E-C377-4C30-9A2A-358AC618D3D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RssReader.Domain", "RssReader.Domain\RssReader.Domain.csproj", "{80C95FC9-B90A-41A5-B7BD-51F4D249DEB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{6B1A8E5E-C377-4C30-9A2A-358AC618D3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B1A8E5E-C377-4C30-9A2A-358AC618D3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B1A8E5E-C377-4C30-9A2A-358AC618D3D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80C95FC9-B90A-41A5-B7BD-51F4D249DEB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80C95FC9-B90A-41A5-B7BD-51F4D249DEB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80C95FC9-B90A-41A5-B7BD-51F4D249DEB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80C95FC9-B90A-41A5-B7BD-51F4D249DEB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

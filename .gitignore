@@ -8,3 +8,6 @@ RssReader_Datalayer/obj/
 RssReader_Datalayer/bin/
 RssReader/bin/
 RssReader/obj/
+RssReader.Domain/bin/
+RssReader.Domain/obj/
+*.dbmdl
