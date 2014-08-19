@@ -4,3 +4,7 @@ rgn_rss_application.Tests/bin/
 rgn_rss_application/obj/
 rgn_rss_application/bin/
 *.suo
+RssReader_Datalayer/obj/
+RssReader_Datalayer/bin/
+RssReader/bin/
+RssReader/obj/
