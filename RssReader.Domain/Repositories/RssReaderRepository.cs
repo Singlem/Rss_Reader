@@ -3,9 +3,9 @@ using System.Linq;
 using Argotic.Syndication;
 using RssReader.Domain.Models;
 
-namespace RssReader.Domain.Services
+namespace RssReader.Domain.Repositories
 {
-    public class RssReaderService
+    public class RssReaderRepository
     {
         public RssFeedContent ReadFeed(string feedUrl)
         {

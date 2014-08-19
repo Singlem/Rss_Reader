@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using RssReader.Domain.Services;
+using RssReader.Domain.Repositories;
 
 namespace rgn_rss_application.Tests
 {
@@ -9,7 +9,7 @@ namespace rgn_rss_application.Tests
         [Test]
         public void ReaderCanRetrieveData()
         {
-            var reader = new RssReaderService();
+            var reader = new RssReaderRepository();
             var result = reader.ReadFeed("http://feeds.news24.com/articles/news24/TopStories/rss");
 
             Assert.IsNotNull(result);
