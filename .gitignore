@@ -11,3 +11,4 @@ RssReader/obj/
 RssReader.Domain/bin/
 RssReader.Domain/obj/
 *.dbmdl
+*.user
