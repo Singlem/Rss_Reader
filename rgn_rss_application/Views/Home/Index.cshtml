@@ -1,7 +1,100 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
+<style>
+    img {
+        float: left;
+        max-width: 200px;
+        max-height: 200px;
+        padding-right: 10px;
+    }
 
-<h2>Index</h2>
+    div {
+        overflow: hidden !important;
+    }
+    p {
+        float: none  !important;
+        overflow: hidden;
+        white-space: initial;
+    }
+</style>
+<div id="items">
+    <div id="divFeeds" data-bind="template: { name: 'RssItem-template', foreach: Feeds }"></div>
+</div>
 
+<script type="text/html" id="RssItem-template">
+    <div class="panel" data-bind="css: { 'panel-danger': !Read(), 'panel-success': Read()}">
+        <div class="panel-heading">
+            <h3 class="panel-title" data-bind="html: Title">Panel title</h3>
+        </div>
+        <div class="panel-body">
+            <div data-bind="html: Content"></div>
+            <input type="button" class="btn btn-success" style="float: right;" value="Mark as read" data-bind="click: MarkRead, visible: !Read()" />
+            <input type="button" class="btn btn-danger" style="float: right;" value="Mark as unread" data-bind="click: MarkUnRead, visible: Read" />
+        </div>
+    </div>
+</script>
+
+<script type="text/javascript">
+    ko.observableArray.fn.pushAll = function (valuesToPush) {
+        var underlyingArray = this();
+        this.valueWillMutate();
+        ko.utils.arrayPushAll(underlyingArray, valuesToPush);
+        this.valueHasMutated();
+        return this;
+    };
+
+    $(document).ready(function() {
+        ko.applyBindings(new RssViewModel());
+    });
+</script>
+<script type="text/javascript">
+    function RssViewModel() {
+        var self = this;
+
+        self.FeedList = ko.observableArray([]);
+
+        self.Feeds = ko.computed(function () {
+            return self.FeedList();
+        });
+
+        function getFeeds() {
+            $.getJSON('/Home/GetFeeds',
+                function (data) {
+                    data = data.result;
+                    self.FeedList([]);
+                    var transformedData = [];
+                    for (var i = 0; i < data.Articles.length; ++i) {
+                        transformedData.push(new RssItem(data.Articles[i]));
+                    }
+                    self.FeedList.pushAll(transformedData);
+                    self.FeedList.notifySubscribers();
+                });
+        }
+
+        function init() {
+            getFeeds();
+        }
+
+        setTimeout(init, 0);
+    }
+
+    var RssItem = function(data) {
+        var self = this;
+
+        self.Link = data.Link;
+        self.PublicationDate = data.PublicationDate;
+        self.Content = data.Content;
+        self.Title = data.Title;
+        self.Author = data.Author;
+        self.Read = ko.observable(false);
+
+        self.MarkRead = function() {
+            self.Read(true);
+        };
+
+        self.MarkUnRead = function () {
+            self.Read(false);
+        };
+    };
+</script>

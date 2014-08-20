@@ -27,8 +27,12 @@ namespace rgn_rss_application
                 "~/Scripts/bootstrap.min.js",
                 "~/Scripts/modernizr-2.6.2.js");
 
+            var cdn = new ScriptBundle("~/Scripts/bundledjsCDN", "http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js");
+
+            bundles.UseCdn = true;
             bundles.Add(styles);
             bundles.Add(js);
+            bundles.Add(cdn);
             BundleTable.EnableOptimizations = true;
         }
     }
